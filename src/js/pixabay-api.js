@@ -11,8 +11,7 @@ const source = 'https://pixabay.com/api/?';
 const options = new URLSearchParams({
 	key: '46749030-b6cef6a6b69e043ecf4444c1b',
 	image_type: 'photo',
-	orientation: 'horizontal',
-	// per_page: 50,
+	orientation: 'horizontal'
 });
 
 const error =
@@ -35,11 +34,10 @@ function ImageSearch() {
 			if (posts.total) {
 				const event = new CustomEvent('imagesFetched', { detail: posts.hits });
 				document.dispatchEvent(event);
-				clear();
 			} else {
 				raiseError();
-				clear();
 			}
+			clear();
 		})
 		.catch(error => {
 			console.log(error);
