@@ -12,7 +12,7 @@ const options = new URLSearchParams({
 	key: '46749030-b6cef6a6b69e043ecf4444c1b',
 	image_type: 'photo',
 	orientation: 'horizontal',
-	per_page: 50,
+	// per_page: 50,
 });
 
 const error =
