@@ -35,13 +35,17 @@ function ImageSearch() {
 			if (posts.total) {
 				const event = new CustomEvent('imagesFetched', { detail: posts.hits });
 				document.dispatchEvent(event);
-				loader.style.display = 'none';
+				clear();
 			} else {
 				raiseError();
-				loader.style.display = 'none';
+				clear();
 			}
 		})
-		.catch(error => console.log(error));
+		.catch(error => {
+			console.log(error);
+			raiseError();
+			clear();
+		});
 }
 
 function raiseError() {
@@ -51,4 +55,9 @@ function raiseError() {
 		color: 'red',
 		theme: 'dark',
 	});
+}
+
+function clear() {
+	loader.style.display = 'none';
+	search.value = '';
 }
