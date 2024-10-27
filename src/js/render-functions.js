@@ -3,7 +3,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector(".gallery");
 
-function renderGallery(images) {
+export function renderGallery(images) {
     let galleryHTML = "";
     images.forEach((element) => {
         galleryHTML += `
@@ -41,6 +41,3 @@ function renderGallery(images) {
     lightbox.refresh();
 }
 
-document.addEventListener('imagesFetched', (event) => {
-    renderGallery(event.detail);
-});
